@@ -1,0 +1,38 @@
+
+
+version: '3.9'
+
+networks:
+  service_network:
+
+services:
+  machine_service:
+    build:
+      context: ./machine_service
+    networks:
+      service_network:
+    volumes:
+      - ./machine_service/:/app
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    networks:
+      service_network:
+    restart: always
+    container_name: postgres
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    ports:
+      - "5431:5432"
+
+volumes:
+  postgres_volume:

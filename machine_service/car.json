@@ -1,0 +1,109 @@
+[
+  {
+
+    "id": 1,
+    "unique_number": "1000",
+    "load_capacity": 50
+  },
+  {
+    "id": 2,
+    "unique_number": "1421",
+    "load_capacity": 200
+  },
+  {
+    "id": 3,
+    "unique_number": "8192",
+    "load_capacity": 800
+  },
+  {
+    "id": 4,
+    "unique_number": "6543",
+    "load_capacity": 300
+  },
+  {
+    "id": 5,
+    "unique_number": "2701",
+    "load_capacity": 400
+  },
+  {
+    "id": 6,
+    "unique_number": "9832",
+    "load_capacity": 900
+  },
+  {
+    "id": 7,
+    "unique_number": "4678",
+    "load_capacity": 600
+  },
+  {
+    "id": 8,
+    "unique_number": "1357",
+    "load_capacity": 100
+  },
+  {
+    "id": 9,
+    "unique_number": "7531",
+    "load_capacity": 700
+  },
+  {
+    "id": 10,
+    "unique_number": "6284",
+    "load_capacity": 500
+  },
+  {
+    "id": 11,
+    "unique_number": "4219",
+    "load_capacity": 250
+  },
+  {
+    "id": 12,
+    "unique_number": "9517",
+    "load_capacity": 950
+  },
+  {
+    "id": 13,
+    "unique_number": "1893",
+    "load_capacity": 150
+  },
+  {
+    "id": 14,
+    "unique_number": "7632",
+    "load_capacity": 750
+  },
+  {
+    "id": 15,
+    "unique_number": "5491",
+    "load_capacity": 450
+  },
+  {
+    "id": 16,
+    "unique_number": "3174",
+    "load_capacity": 350
+  },
+  {
+    "id": 17,
+    "unique_number": "9821",
+    "load_capacity": 920
+  },
+  {
+    "id": 18,
+    "unique_number": "6549",
+    "load_capacity": 650
+  },
+  {
+    "id": 19,
+    "unique_number": "2198",
+    "load_capacity": 220
+  },
+  {
+    "id": 20,
+    "unique_number": "8437",
+    "load_capacity": 840
+  }
+]
+
+
+
+
+
+
