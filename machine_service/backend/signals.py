@@ -11,7 +11,6 @@ from backend.models import Car, Location
 def add_random_letter(sender, instance, **kwargs):
     """ Генерация случайной заглавной буквы английского алфавита"""
     if len(instance.unique_number) == 5:
-        # random_letter = random.choice(string.ascii_uppercase)
         instance.unique_number = f"{instance.unique_number}"
     else:
         random_letter = random.choice(string.ascii_uppercase)

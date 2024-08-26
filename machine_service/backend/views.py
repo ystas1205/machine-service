@@ -150,9 +150,8 @@ class CarView(APIView):
 
                 if serializer.is_valid(raise_exception=True):
                     serializer.save()
-                    print(serializer.data)
                     return JsonResponse(
-                        {'status': '   Машина обновлена'},
+                        {'status': 'Машина обновлена'},
                         status=status.HTTP_201_CREATED)
         return JsonResponse(
             {'Status': 'Не указаны все необходимые аргументы'},
@@ -184,7 +183,7 @@ class FilteredCargoView(ModelViewSet):
                                                  context={'cars': distance})
             return Response(serializer.data)
         return JsonResponse(
-            {'Status': 'Введы не коректные данные'},
+            {'Status': 'Введены некорректные данные'},
             status=status.HTTP_400_BAD_REQUEST)
 
     def get_car(self, distance_max, location):
