@@ -10,10 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+
+from celery.schedules import crontab
 from dotenv import load_dotenv
 
 load_dotenv()
 from pathlib import Path
+
+
+from celery import Celery
+app = Celery('machine_service')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +36,12 @@ DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,8 +53,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'geopy',
     'rest_framework',
+    'django_celery_results',
+    'django_celery_beat',
     'backend',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -127,10 +142,26 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+# celery
+# CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'
+
+
+CELERY_WORKER_STATE_DB = 'celery_worker_state'
+
+CELERY_BEAT_SCHEDULE = {
+    'my_task': {
+        'task': 'backend.tasks.upload_location_car',
+        'schedule': crontab(minute='*/3')
+    }
+}
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
